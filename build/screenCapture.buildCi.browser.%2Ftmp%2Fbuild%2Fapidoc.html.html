@@ -1,0 +1,332 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://fresc81.github.io/node-winreg">winreg (v1.2.3)</a>
+</h1>
+<h4>provides access to the windows registry through the REG tool</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.winreg">module winreg</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.winreg.winreg">
+            function <span class="apidocSignatureSpan"></span>winreg
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.winreg.toString">
+            function <span class="apidocSignatureSpan">winreg.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">winreg.</span>HIVES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">winreg.</span>REG_TYPES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>DEFAULT_VALUE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>HKCC</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>HKCR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>HKCU</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>HKLM</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>HKU</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>REG_BINARY</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>REG_DWORD</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>REG_EXPAND_SZ</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>REG_MULTI_SZ</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>REG_NONE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>REG_QWORD</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">winreg.</span>REG_SZ</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.winreg" id="apidoc.module.winreg">module winreg</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.winreg.winreg" id="apidoc.element.winreg.winreg">
+        function <span class="apidocSignatureSpan"></span>winreg
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Registry(options) {
+
+  if (!(this instanceof Registry))
+    return new Registry(options);
+
+  /* private members */
+  var _options = options || {}
+  ,   _host = '' + (_options.host || '')    // hostname
+  ,   _hive = '' + (_options.hive || HKLM)  // registry hive
+  ,   _key  = '' + (_options.key  || '')    // registry key
+  ,   _arch = _options.arch || null         // hive architecture
+
+  /* getters/setters */
+
+  /**
+   * The hostname.
+   * @readonly
+   * @member {string} Registry#host
+   */
+  this.__defineGetter__('host', function () { return _host; });
+
+  /**
+   * The hive id.
+   * @readonly
+   * @member {string} Registry#hive
+   */
+  this.__defineGetter__('hive', function () { return _hive; });
+
+  /**
+   * The registry key name.
+   * @readonly
+   * @member {string} Registry#key
+   */
+  this.__defineGetter__('key', function () { return _key; });
+
+  /**
+   * The full path to the registry key.
+   * @readonly
+   * @member {string} Registry#path
+   */
+  this.__defineGetter__('path', function () { return (_host.length == 0 ? '' : '\\\\' + host + '\\') + _hive + _key; });
+
+  /**
+   * The registry hive architecture ('x86' or 'x64').
+   * @readonly
+   * @member {string} Registry#arch
+   */
+  this.__defineGetter__('arch', function () { return _arch; });
+
+  /**
+   * Creates a new {@link Registry} instance that points to the parent registry key.
+   * @readonly
+   * @member {Registry} Registry#parent
+   */
+  this.__defineGetter__('parent', function () {
+    var i = _key.lastIndexOf('\\')
+    return new Registry({
+      host: this.host,
+      hive: this.hive,
+      key:  (i == -1)?'':_key.substring(0, i),
+      arch: this.arch
+    });
+  });
+
+  // validate options...
+  if (HIVES.indexOf(_hive) == -1)
+    throw new Error('illegal hive specified.');
+
+  if (!KEY_PATTERN.test(_key))
+    throw new Error('illegal key specified.');
+
+  if (_arch &amp;&amp; _arch != 'x64' &amp;&amp; _arch != 'x86')
+    throw new Error('illegal architecture specified (use x86 or x64)');
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.winreg.toString" id="apidoc.element.winreg.toString">
+        function <span class="apidocSignatureSpan">winreg.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+If you want to query the currently selected codepage you can type the command &lt;code&gt;chcp&lt;/code&gt; (w/o parameters
+). To set a new codepage (UTF-8 for this example) you pass the codepage number as the only argument to &lt;code&gt;chcp&lt;
+;/code&gt;. The codepage value for UTF-8 is 65001.
+
+You can easily do this from within your nodejs script by using the &lt;code&gt;child_process.execSync(...)&lt;/code&gt;
+function like the following example shows.
+
+```javascript
+var execSync = require('child_process').execSync;
+console.log(execSync('chcp').<span class="apidocCodeKeywordSpan">toString</span>());
+console.log(execSync('chcp 65001').toString());
+```
+
+An even better approach would be to extract and store the value returned by a call to &lt;code&gt;chcp&lt;/code&gt; prior
+ setting the console to UTF-8 and resetting the codepage after your script is done.
+
+
+## License ##
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
