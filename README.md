@@ -1,6 +1,6 @@
 # npmdoc-winreg
 
-#### api documentation for  [winreg (v1.2.3)](http://fresc81.github.io/node-winreg)  [![npm package](https://img.shields.io/npm/v/npmdoc-winreg.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-winreg) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-winreg.svg)](https://travis-ci.org/npmdoc/node-npmdoc-winreg)
+#### basic api documentation for  [winreg (v1.2.3)](http://fresc81.github.io/node-winreg)  [![npm package](https://img.shields.io/npm/v/npmdoc-winreg.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-winreg) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-winreg.svg)](https://travis-ci.org/npmdoc/node-npmdoc-winreg)
 
 #### provides access to the windows registry through the REG tool
 
@@ -69,7 +69,8 @@
         "generate-docs": "jsdoc -c ./jsdoc.conf.json",
         "test": "mocha test"
     },
-    "version": "1.2.3"
+    "version": "1.2.3",
+    "bin": {}
 }
 ```
 
