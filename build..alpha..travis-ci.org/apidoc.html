@@ -72,15 +72,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.winreg.toString">
-            function <span class="apidocSignatureSpan">winreg.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">winreg.</span>HIVES</span>
 
         </li>
@@ -260,41 +251,6 @@
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.winreg.toString" id="apidoc.element.winreg.toString">
-        function <span class="apidocSignatureSpan">winreg.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-If you want to query the currently selected codepage you can type the command &#x3c;code&#x3e;chcp&#x3c;/code&#x3e; (w/o parameters
-). To set a new codepage (UTF-8 for this example) you pass the codepage number as the only argument to &#x3c;code&#x3e;chcp&#x3c
-;/code&#x3e;. The codepage value for UTF-8 is 65001.
-
-You can easily do this from within your nodejs script by using the &#x3c;code&#x3e;child_process.execSync(...)&#x3c;/code&#x3e;
-function like the following example shows.
-
-```javascript
-var execSync = require(&#x27;child_process&#x27;).execSync;
-console.log(execSync(&#x27;chcp&#x27;).<span class="apidocCodeKeywordSpan">toString</span>());
-console.log(execSync(&#x27;chcp 65001&#x27;).toString());
-```
-
-An even better approach would be to extract and store the value returned by a call to &#x3c;code&#x3e;chcp&#x3c;/code&#x3e; prior
- setting the console to UTF-8 and resetting the codepage after your script is done.
-
-
-## License ##
-...</pre></li>
     </ul>
 
 
